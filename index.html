@@ -232,7 +232,7 @@ body:not([data-view="home"]) .reel{opacity:0;pointer-events:none}
 <!-- About -->
 <section class="view about" id="about" aria-label="About">
   <div class="a-in">
-    <figure class="a-photo rise"><img src="media/about.jpg?v=2610270400" alt="João Gabriel Nemer" width="1024" height="1536"></figure>
+    <figure class="a-photo rise"><img src="media/about.jpg?v=2610272003" alt="João Gabriel Nemer" width="1024" height="1536"></figure>
     <div class="a-text rise" style="animation-delay:.6s">
       <h1>Producer and creative director</h1>
       <div class="bio">
@@ -291,6 +291,9 @@ const W = [
    yt:[['Watch the music video', yt('xAFOQQkmCuE')]],
    x:['Official music video for Maglore’s “Tudo Bem”, made by PSIU as part of the release campaign run by Loco Records and PSIU.'],
    r:'Production, creative direction'},
+  {id:'poptalism', cover:'cover-poptalism', loop:'loop-poptalism', t:'Poptalism', a:'Giovanna Bettio', s:'Poptalism', k:'Fashion film · Giovanna Bettio', d:'April 2026', ar:'4/3',
+   x:['A fashion film for Giovanna Bettio’s collection. Its visual language swings between attraction and saturation, where excess becomes both strategy and commentary on desire, spectacle and the commodification of the image.'],
+   r:'Set production, cinematography, editing'},
   {id:'patricia-andrade', t:'Patrícia Andrade', a:'Patrícia Andrade', s:'Documentary', k:'Documentary · Patrícia Andrade Decor', d:'Production & creative direction · PSIU', ar:'4/3', loop:'loop-patricia',
    v:[['patricia','Trajectory']],
    x:['A short documentary on the trajectory of the interior designer Patrícia Andrade, told through her spaces and in her own words.'],
@@ -349,14 +352,14 @@ const CLIPS = [
 const HLSM = {"adrianna-1":{"d":[10.0,0.416667]},"adrianna-2":{"d":[10.0,10.0,5.0]},"adrianna-3":{"d":[10.0,10.0,10.0,10.0,10.0,10.0,8.166667]},"bebe-ano-cavalo":{"d":[10.01,10.01,10.01,9.976633,10.01,7.440767]},"bebe-teaser":{"d":[10.01,10.01,10.01,4.838167]},"dorinana":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.176444]},"patricia-design":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,1.793578]},"patricia":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,8.6736]},"ultima-roupa":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,5.839556]},"zellner":{"d":[10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,8.0]}};
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const img = n => 'media/' + n + '.jpg?v=2610270400', vid = n => 'media/' + n + '.mp4?v=2610270400';
+const img = n => 'media/' + n + '.jpg?v=2610272003', vid = n => 'media/' + n + '.mp4?v=2610272003';
 const pad = n => String(n).padStart(2, '0');
 const arn = a => { const [w, h] = a.split('/').map(Number); return (w / h).toFixed(4); };
 
 /* ---------- player HLS ---------- */
 function m3u(key) {
   const m = HLSM[key];
-  const seg = i => new URL(m.s ? '/_blob/' + m.s[i] : 'hls/' + key + '/s' + String(i).padStart(3, '0') + '.mp4?v=2610270400', document.baseURI).href;
+  const seg = i => new URL(m.s ? '/_blob/' + m.s[i] : 'hls/' + key + '/s' + String(i).padStart(3, '0') + '.mp4?v=2610272003', document.baseURI).href;
   let t = '#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXT-X-TARGETDURATION:' + Math.ceil(Math.max(...m.d)) + '\n#EXT-X-MEDIA-SEQUENCE:0\n';
   m.d.forEach((d, i) => { t += '#EXTINF:' + d.toFixed(5) + ',\n' + seg(i) + '\n'; });
   return t + '#EXT-X-ENDLIST\n';
