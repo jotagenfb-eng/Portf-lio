@@ -190,6 +190,7 @@ body:not([data-view="home"]) .reel{opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+.ar{display:inline-block;width:.68em;height:.68em;margin-left:.15em;vertical-align:.02em}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -244,7 +245,7 @@ body:not([data-view="home"]) .reel{opacity:0;pointer-events:none}
         <div class="row">
           <span class="mail" id="mail">jotagenfb@gmail.com</span>
           <button class="copy lg" id="copy" type="button">Copy</button>
-          <a href="https://www.instagram.com/jotagenfb/" target="_blank" rel="noopener">@jotagenfb <span>↗</span></a>
+          <a href="https://www.instagram.com/jotagenfb/" target="_blank" rel="noopener">@jotagenfb <svg class="ar" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8 8 2M3.2 2H8v4.8" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a>
           <a href="tel:+5531973458394">+55 31 97345-8394</a>
         </div>
       </div>
@@ -277,12 +278,12 @@ const W = [
    x:['Album visuals for Bebé, the São Paulo singer and songwriter whose debut earned Best New Artist nominations from APCA, PPM and WME, and whose second album, SALVE-SE! (Coala Records), was named by the APCA jury among the best Brazilian albums of the first half of 2024, with BK’ and Boogarins’ Dinho Almeida as guests.',
       'A pastoral room built inside the studio, with grass, clay jugs and a lone table, where the music is played live.'],
    r:'Creative direction, production'},
-  {id:'dorinana', t:'Dorinana', a:'Ítallo França', s:'Dorinana', k:'Music video · Ítallo França', d:'Catatau · 2026', ar:'16/9', loop:'loop-dorinana',
+  {id:'dorinana', t:'Dorinana', a:'Ítallo França', s:'Dorinana', k:'Music video · Ítallo França', d:'Catatau · 2026', ar:'9/16', loop:'loop-dorinana',
    v:[['dorinana','Dorinana · horizontal triptych']],
    x:['From Catatau, the album by Alagoan singer-songwriter Ítallo França, produced by Paulo Novaes for Loco Records. His songs have been recorded by Zé Ibarra and Julia Mestre.',
       'Shot vertical and presented here as a horizontal triptych: the same night seen at three moments at once.'],
    r:'Creative direction, production'},
-  {id:'ultima-roupa', t:'Última Roupa', a:'Ítallo França', s:'Última Roupa', o:'Last Garment', k:'Music video · Ítallo França', d:'Catatau · 2026', ar:'16/9', loop:'loop-ultima',
+  {id:'ultima-roupa', t:'Última Roupa', a:'Ítallo França', s:'Última Roupa', o:'Last Garment', k:'Music video · Ítallo França', d:'Catatau · 2026', ar:'9/16', loop:'loop-ultima',
    v:[['ultima-roupa','Última Roupa · horizontal triptych']],
    x:['A second film from Catatau, Ítallo França’s album for Loco Records, shot at night in a green, infrared haze.'],
    r:'Creative direction, production'},
@@ -333,19 +334,19 @@ const W = [
 
 // playlist da home
 const CLIPS = [
-  {src:'loop-maquina', asp:16/9, p:'adrianna', t:'Adrianna', l:['Video installation', 'Produced by João Gabriel Nemer · Premieres Dec 2026']},
+  {src:'loop-maquina', asp:16/9, f:[.475,.5], drift:1, p:'adrianna', t:'Adrianna', l:['Video installation', 'Produced by João Gabriel Nemer · Premieres Dec 2026']},
   {src:'loop-zellner', asp:16/9, p:'zellner', t:'Zellner', l:['Short film · 2025', 'Written and directed by João Gabriel Nemer']},
   {src:'loop-zellner-2', asp:16/9, p:'zellner', t:'Zellner', l:['Short film · 2025', 'Written and directed by João Gabriel Nemer']},
   {src:'loop-bebe', asp:16/9, p:'bebe', t:'Bebé — Ano Cavalo', l:['Album visual', PSIU]},
-  {src:'loop-dorinana', asp:16/9, p:'dorinana', t:'Ítallo França — Dorinana', l:['Music video', PSIU]},
+  {src:'loop-dorinana', asp:810/1440, f:[.5,.4], p:'dorinana', t:'Ítallo França — Dorinana', l:['Music video', PSIU]},
   {src:'loop-patricia', asp:4/3, p:'patricia-andrade', t:'Patrícia Andrade', l:['Documentary', PSIU]},
   {src:'loop-patricia-design', asp:4/3, p:'patricia-design', t:'Patrícia Andrade', l:['Design film', PSIU]},
-  {src:'loop-ultima', asp:16/9, p:'ultima-roupa', t:'Ítallo França — Última Roupa', l:['Music video', PSIU]},
+  {src:'loop-ultima', asp:810/1440, f:[.5,.4], p:'ultima-roupa', t:'Ítallo França — Última Roupa', l:['Music video', PSIU]},
   {src:'loop-bebe-2', asp:16/9, p:'bebe', t:'Bebé', l:['Album visual', PSIU]}
 ];
 
 // vídeos longos: segmentos HLS no acervo do artifact (d = durações, s = ids)
-const HLSM = {"adrianna-1":{"d":[10.0,0.416667]},"adrianna-2":{"d":[10.0,10.0,5.0]},"adrianna-3":{"d":[10.0,10.0,10.0,10.0,10.0,10.0,8.166667]},"bebe-ano-cavalo":{"d":[10.01,10.01,10.01,9.976633,10.01,7.440767]},"bebe-teaser":{"d":[10.01,10.01,10.01,4.838167]},"dorinana":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.174]},"patricia-design":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,1.793578]},"patricia":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,8.6736]},"ultima-roupa":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,5.838]},"zellner":{"d":[10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,8.0]}};
+const HLSM = {"adrianna-1":{"d":[10.0,0.416667]},"adrianna-2":{"d":[10.0,10.0,5.0]},"adrianna-3":{"d":[10.0,10.0,10.0,10.0,10.0,10.0,8.166667]},"bebe-ano-cavalo":{"d":[10.01,10.01,10.01,9.976633,10.01,7.440767]},"bebe-teaser":{"d":[10.01,10.01,10.01,4.838167]},"dorinana":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.176444]},"patricia-design":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,1.793578]},"patricia":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,8.6736]},"ultima-roupa":{"d":[10.01,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,9.9683,10.01,10.01,10.01,9.968289,10.01,10.01,10.01,5.839556]},"zellner":{"d":[10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,8.0]}};
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const img = n => 'media/' + n + '.jpg', vid = n => 'media/' + n + '.mp4';
@@ -384,7 +385,7 @@ function detach(v) { if (v && v._hls) { v._hls.destroy(); v._hls = null; } }
 
 /* ---------- trilho ---------- */
 const rail = document.getElementById('rail');
-const typeCard = p => `<span class="tt">${esc(p.t)}</span><span class="ts"><span>${esc(p.client || p.k)}</span><span>YouTube ↗</span></span>`;
+const typeCard = p => `<span class="tt">${esc(p.t)}</span><span class="ts"><span>${esc(p.client || p.k)}</span><span>YouTube <svg class="ar" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8 8 2M3.2 2H8v4.8" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></span></span>`;
 const overlay = p => `<span class="ov"><b>${esc(p.a)}</b><span>${esc(p.s)}</span></span>`;
 rail.innerHTML = W.map((p, n) => {
   const c = p.card || p.loop, fit = p.fit ? ` style="object-fit:${p.fit}"` : '';
@@ -405,6 +406,7 @@ function setPlaying() {
     const v = c.querySelector('video'); if (!v) return;
     if ((i === cur || seen.has(c)) && document.body.dataset.view === 'work') {
       if (!v.src) v.src = v.dataset.src;
+      v.muted = !(soundOn && i === cur);
       v.play().then(() => c.classList.add('playing')).catch(() => {});
     } else { v.pause(); c.classList.remove('playing'); }
   });
@@ -443,8 +445,8 @@ function renderDetail(p) {
     : p.cover ? `<a class="player cov" style="--ar:${p.ar};--arn:${arn(p.ar)}" ${p.yt ? `href="${p.yt[0][1]}" target="_blank" rel="noopener"` : ''}><img src="${img(p.cover)}" alt="${esc(p.t)}">${p.yt ? `<span class="pl"><svg viewBox="0 0 14 14"><path d="M2 1l11 6-11 6z"/></svg></span><span class="plt">${esc(p.yt[0][0])} on YouTube</span>` : ''}</a>`
     : `<a class="player type" style="--ar:${p.ar};--arn:${arn(p.ar)}" href="${p.yt[0][1]}" target="_blank" rel="noopener" aria-label="${esc(p.yt[0][0])} on YouTube"><span class="pl"><svg viewBox="0 0 14 14"><path d="M2 1l11 6-11 6z"/></svg></span><span>${esc(p.yt[0][0])} on YouTube</span><span class="ts"><span>${esc(p.client || p.k)}</span><span>${esc(p.d)}</span></span></a>`;
   const links = [
-    ...(p.yt || []).map(([l, u], j) => `<a class="btn ${j ? 'lg' : 'solid'}" href="${u}" target="_blank" rel="noopener">${esc(l)} ↗</a>`),
-    p.press && `<a class="btn lg" href="${p.press}" target="_blank" rel="noopener">Press ↗</a>`].filter(Boolean).join('');
+    ...(p.yt || []).map(([l, u], j) => `<a class="btn ${j ? 'lg' : 'solid'}" href="${u}" target="_blank" rel="noopener">${esc(l)} <svg class="ar" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8 8 2M3.2 2H8v4.8" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a>`),
+    p.press && `<a class="btn lg" href="${p.press}" target="_blank" rel="noopener">Press <svg class="ar" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 8 8 2M3.2 2H8v4.8" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a>`].filter(Boolean).join('');
   din.innerHTML = `${media}
     <div class="d-text">
       <div><h1>${esc(p.t)}</h1><p class="d-meta">${p.o ? `<span class="mute">${esc(p.o)}</span>` : ''}<span>${esc(p.k)}</span><span>${esc(p.d)}</span></p></div>
@@ -452,7 +454,7 @@ function renderDetail(p) {
         <div class="kv">${p.r ? `<p><small>Role</small>${esc(p.r)}</p>` : ''}${p.c ? `<p><small>Credits</small>${esc(p.c)}</p>` : ''}</div>
         ${links ? `<div class="links">${links}</div>` : ''}</div>
     </div>
-    <a class="next" href="#${nx.id}"><span><small>Next</small><b>${esc(nx.t)}</b></span><b aria-hidden="true">→</b></a>`;
+    <a class="next" href="#${nx.id}"><span><small>Next</small><b>${esc(nx.t)}</b></span><b aria-hidden="true">→︎</b></a>`;
   dv = document.getElementById('dv');
   if (dv) {
     attach(dv, p.v[0][0], p.loop && vid(p.loop));
@@ -506,7 +508,7 @@ let front = vA, back = vB, mixing = false, mix = 0, fadeStart = 0, nextK = 1, at
 let frontClip = L[0], backClip = L[1];
 function caption(c, i) {
   reelIdx.textContent = pad(i + 1) + ' / ' + pad(L.length);
-  reelCap.innerHTML = `<b>${esc(c.t)}</b>${c.l.map(s => `<span>${esc(s)}</span>`).join('')}<a href="#${c.p}">View project <span>→</span></a>`;
+  reelCap.innerHTML = `<b>${esc(c.t)}</b>${c.l.map(s => `<span>${esc(s)}</span>`).join('')}<a href="#${c.p}">View project <span>→︎</span></a>`;
   reelCap.classList.remove('cap-in'); void reelCap.offsetWidth; reelCap.classList.add('cap-in');
 }
 function load(v, c) { v.src = vid(c.src); v.load(); }
@@ -514,6 +516,12 @@ load(front, frontClip); front.play().catch(() => {}); caption(frontClip, 0);
 load(back, backClip);
 frameEl.addEventListener('click', () => { location.hash = (mixing ? backClip : frontClip).p; });
 function home(on) { atHome = on; if (on) front.play().catch(() => {}); else awaySince = performance.now(); }
+var soundOn = false;
+function sound() {
+  front.muted = !soundOn || !atHome; back.muted = !soundOn || !atHome || !mixing;
+  if (soundOn && mixing) { try { front.volume = 1 - mix; back.volume = mix; } catch (_) {} } else { try { front.volume = 1; } catch (_) {} }
+}
+['pointerdown', 'keydown', 'touchend'].forEach(ev => addEventListener(ev, () => { if (soundOn) return; soundOn = true; sound(); setPlaying(); if (atHome) front.play().catch(() => {}); }, {capture: true, passive: true}));
 function tick(now) {
   const end = front.duration || Infinity;
   if (isFinite(end)) reelBar.style.transform = `scaleX(${Math.min(1, front.currentTime / end)})`;
@@ -535,6 +543,7 @@ function tick(now) {
       if (mixing && back.readyState >= 2) { amb.globalAlpha = mix; amb.drawImage(back, 0, 0, 64, 36); }
     } catch (_) {}
   }
+  if (soundOn) sound();
   if (!atHome && !front.paused && now - awaySince > 900) front.pause();
   requestAnimationFrame(tick);
 }
@@ -548,14 +557,14 @@ requestAnimationFrame(tick);
   if (!gl) return fail();
   const vs = `attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}`;
   const fs = `precision mediump float;
-  uniform sampler2D A,B;uniform float mixv,t,aspA,aspB;uniform vec2 res;uniform vec3 rp[8];
-  vec2 cover(vec2 uv,float asp){float sa=res.x/res.y;vec2 s=sa>asp?vec2(1.,asp/sa):vec2(sa/asp,1.);return (uv-.5)*s+.5;}
-  vec3 samp(vec2 uv){vec2 a=cover(uv,aspA);a.y=1.-a.y;vec2 b=cover(uv,aspB);b.y=1.-b.y;return mix(texture2D(A,a).rgb,texture2D(B,b).rgb,mixv);}
+  uniform sampler2D A,B;uniform float mixv,t,aspA,aspB,drift;uniform vec2 fA,fB;uniform vec2 res;uniform vec3 rp[8];
+  vec2 cover(vec2 uv,float asp,vec2 f){float sa=res.x/res.y;vec2 s=sa>asp?vec2(1.,asp/sa):vec2(sa/asp,1.);return (uv-.5)*s+clamp(f,s*.5,1.-s*.5);}
+  vec3 samp(vec2 uv){uv.y=1.-uv.y;vec2 a=cover(uv,aspA,fA);vec2 b=cover(uv,aspB,fB);return mix(texture2D(A,a).rgb,texture2D(B,b).rgb,mixv);}
   void main(){
     vec2 uv=gl_FragCoord.xy/res;float ar=res.x/res.y;
     vec2 d=vec2(0.);
-    d.x+=.0016*(sin(uv.y*16.+t*.9)+.6*sin(uv.y*6.3-t*.55+uv.x*3.));
-    d.y+=.0016*(cos(uv.x*13.-t*.8)+.6*cos(uv.x*5.1+t*.45+uv.y*2.));
+    d.x+=drift*.0016*(sin(uv.y*16.+t*.9)+.6*sin(uv.y*6.3-t*.55+uv.x*3.));
+    d.y+=drift*.0016*(cos(uv.x*13.-t*.8)+.6*cos(uv.x*5.1+t*.45+uv.y*2.));
     float hi=0.;
     for(int i=0;i<8;i++){
       float age=t-rp[i].z; if(age<0.||age>3.2)continue;
@@ -589,7 +598,7 @@ requestAnimationFrame(tick);
   }
   let last = 0;
   addEventListener('pointermove', e => { const n = performance.now(); if (!atHome || n - last < 160) return; last = n; ripple(e); });
-  setInterval(() => { if (atHome && !document.hidden) { const r = frameEl.getBoundingClientRect(); ripple({clientX: r.left + r.width * (.15 + Math.random() * .7), clientY: r.top + r.height * (.2 + Math.random() * .6)}); } }, 3800);
+  setInterval(() => { if (atHome && !document.hidden && frontClip.drift) { const r = frameEl.getBoundingClientRect(); ripple({clientX: r.left + r.width * (.15 + Math.random() * .7), clientY: r.top + r.height * (.2 + Math.random() * .6)}); } }, 3800);
   function size() { const dpr = Math.min(devicePixelRatio || 1, 2); cv.width = frameEl.clientWidth * dpr; cv.height = frameEl.clientHeight * dpr; gl.viewport(0, 0, cv.width, cv.height); }
   size(); addEventListener('resize', size);
   function up(i, v) { if (v.readyState >= 2) { gl.activeTexture(gl.TEXTURE0 + i); gl.bindTexture(gl.TEXTURE_2D, tex[i]); try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, v); } catch (_) { fail(); return false; } } return true; }
@@ -598,6 +607,9 @@ requestAnimationFrame(tick);
     if (atHome || now - awaySince < 900) {
       if (!up(0, front)) return;
       if (mixing && !up(1, back)) return;
+      const fa = frontClip.f || [.5, .5], fb = (backClip || frontClip).f || [.5, .5];
+      gl.uniform2f(U('fA'), fa[0], fa[1]); gl.uniform2f(U('fB'), fb[0], fb[1]);
+      gl.uniform1f(U('drift'), (frontClip.drift ? 1 - (mixing ? mix : 0) : 0) + (mixing && backClip && backClip.drift ? mix : 0));
       gl.uniform1f(U('aspA'), frontClip.asp); gl.uniform1f(U('aspB'), backClip ? backClip.asp : frontClip.asp);
       gl.uniform1f(U('mixv'), mixing ? mix * mix * (3 - 2 * mix) : 0);
       gl.uniform1f(U('t'), (now - t0) / 1000);
